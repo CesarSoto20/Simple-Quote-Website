@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #030308;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='300' viewBox='0 0 360 300'%3E%3Cpath d='M55,41 Q55,50 64,50 Q55,50 55,59 Q55,50 46,50 Q55,50 55,41 Z' fill='white'/%3E%3Cpath d='M230,54 Q230,65 241,65 Q230,65 230,76 Q230,65 219,65 Q230,65 230,54 Z' fill='white'/%3E%3Cpath d='M140,147 Q140,155 148,155 Q140,155 140,163 Q140,155 132,155 Q140,155 140,147 Z' fill='white'/%3E%3Cpath d='M310,175 Q310,185 320,185 Q310,185 310,195 Q310,185 300,185 Q310,185 310,175 Z' fill='white'/%3E%3Cpath d='M80,236 Q80,245 89,245 Q80,245 80,254 Q80,245 71,245 Q80,245 80,236 Z' fill='white'/%3E%3Cpath d='M250,247 Q250,255 258,255 Q250,255 250,263 Q250,255 242,255 Q250,255 250,247 Z' fill='white'/%3E%3Ccircle cx='25' cy='140' r='1.5' fill='white' opacity='0.85'/%3E%3Ccircle cx='115' cy='90' r='2' fill='white' opacity='0.9'/%3E%3Ccircle cx='185' cy='30' r='1.5' fill='white' opacity='0.8'/%3E%3Ccircle cx='290' cy='110' r='2' fill='white' opacity='0.9'/%3E%3Ccircle cx='195' cy='215' r='1.5' fill='white' opacity='0.85'/%3E%3Ccircle cx='335' cy='45' r='1.5' fill='white' opacity='0.8'/%3E%3Ccircle cx='150' cy='275' r='2' fill='white' opacity='0.9'/%3E%3C/svg%3E"),
+        radial-gradient(ellipse 45% 14% at 30% 48%, rgba(59, 130, 246, 0.55) 0%, transparent 100%),
+        radial-gradient(ellipse 45% 12% at 68% 58%, rgba(216, 180, 254, 0.45) 0%, transparent 100%),
+        radial-gradient(ellipse 75% 24% at 50% 52%, rgba(67, 56, 202, 0.7) 0%, rgba(30, 27, 75, 0.4) 55%, transparent 100%);
+    background-size:
+        360px 300px,
+        100% 100%,
+        100% 100%,
+        100% 100%;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 28px 20px;
+}
+
+.container {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+}
+
+.header {
+    text-align: center;
+    color: white;
+}
+
+.header h1 {
+    font-size: 46px;
+    margin-bottom: 6px;
+}
+
+.header p {
+    font-size: 18px;
+    color: #a2a5b3;
+}
+
+.quote-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 780px) 1fr;
+    align-items: center;
+    gap: 72px;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.box {
+    grid-column: 2;
+    position: relative;
+    width: 100%;
+    height: 64vh;
+    max-height: 560px;
+    background-color: #12141d;
+    border-radius: 14px;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.box::after,
+.box::before,
+.btn::after,
+.btn::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: content-box;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00d4ff, #006aff, #ff0095, #ff4545);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 16px;
+    animation: 3s spin linear infinite;
+}
+
+.box::before,
+.btn::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+.box p {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 30px;
+    line-height: 1.5;
+    font-weight: bold;
+    color: #ffffff;
+    max-width: 700px;
+}
+
+.btn {
+    grid-column: 3;
+    justify-self: start;
+    position: relative;
+    background-color: #12141d;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn::after,
+.btn::before {
+    border-radius: 14px;
+}
+
+.btn:hover {
+    background-color: #1a1d2a;
+}
