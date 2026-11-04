@@ -20,4 +20,5 @@ Built to learn AWS static website hosting, cloud storage, and content delivery.
 
 Deployment Status
 
-Not yet deployed. AWS deployment is planned.
+https://simple-quote-website.s3.us-east-2.amazonaws.com/index.html
+
